@@ -11,10 +11,6 @@ public class Solution27 {
   }
 
   public static int removeElement(int[] nums, int val) {
-    if (nums.length == 1) {
-      nums = new int[]{};
-      return 1;
-    }
     //移除等于val的
     int slow = 0, fast = 0, sum = 0;
     while (fast < nums.length) {
