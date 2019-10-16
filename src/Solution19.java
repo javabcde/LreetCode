@@ -9,7 +9,7 @@ public class Solution19 {
     ListNode head = new ListNode(1);
     head.next = listNode;
     //ListNode listNode1 = removeNthFromEnd(head, 2);
-    ListNode listNode2 = removeNthFromEnd2(head, 2);
+    ListNode listNode2 = removeNthFromEnd2(head, 1);
     System.out.println(listNode2);
   }
 

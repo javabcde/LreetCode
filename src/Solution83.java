@@ -20,8 +20,10 @@ public class Solution83 {
         break;
       }
       if (listNode.val == listNode.next.val) {
+        //引用跳到下下个
         listNode.next = listNode.next.next;
       } else {
+        //指针前移动
         listNode = listNode.next;
       }
     }
