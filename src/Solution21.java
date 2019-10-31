@@ -30,14 +30,4 @@ public class Solution21 {
     }
     return virNode.next;
   }
-
-  private static class ListNode {
-
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-      val = x;
-    }
-  }
 }

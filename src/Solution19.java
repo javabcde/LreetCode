@@ -56,14 +56,4 @@ public class Solution19 {
     first.next = first.next.next;
     return dummy.next;
   }
-
-  private static class ListNode {
-
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-      val = x;
-    }
-  }
 }
