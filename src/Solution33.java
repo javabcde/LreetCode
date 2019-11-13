@@ -5,61 +5,35 @@
 public class Solution33 {
 
   public static void main(String[] args) {
-    int[] ints = {1, 2};
+    int[] ints = {4, 5, 6, 7, 0, 1, 2};
     int search = search(ints, 2);
     System.out.println(search);
   }
 
 
   public static int search(int[] nums, int target) {
-    int index = findParten(nums);
-    int first = 0;
-    int end;
-    int millde;
-    if (nums.length == 0) {
-      return -1;
-    }
-    if (nums[0] < target) {
-      end = index;
-      millde = first + ((end - first) >> 1);
-      while (first <= end) {
-        if (nums[millde] < target) {
-          first = millde + 1;
-        } else if (nums[millde] > target) {
-          end = millde - 1;
-        } else if (nums[millde] == target) {
-          return millde;
-        }
-        millde = first + ((end - first) >> 1);
-      }
-    } else {
-      first = index;
-      end = nums.length - 1;
-      millde = first + ((end - first) >> 1);
-      while (first <= end) {
-        if (nums[millde] < target) {
-          first = millde + 1;
-        } else if (nums[millde] > target) {
-          end = millde - 1;
-        } else if (nums[millde] == target) {
-          return millde;
-        }
-        millde = first + ((end - first) >> 1);
-      }
-    }
-    return -1;
+    int returnValue = stackThis(nums, 0, nums.length - 1, target);
+    return returnValue;
   }
 
-  private static int findParten(int[] nums) {
-    int fast = 1;
-    int slow = 0;
-    while (fast < nums.length - 1) {
-      if (nums[slow] > nums[fast]) {
-        return slow;
+  private static int stackThis(int[] nums, int start, int end, int target) {
+    int mid = start + ((end - start) >> 1);
+    if (nums[start] <= nums[mid]) {
+      //有序
+      while (start <= end) {
+        if (nums[mid] < target) {
+          start = mid + 1;
+        } else if (nums[mid] > target) {
+          end = mid - 1;
+        } else {
+          return mid;
+        }
+        mid = start + ((end - start) >> 1);
       }
-      fast++;
-      slow++;
+      return stackThis(nums, mid, end, target);
+    } else {
+      //无序
+      return stackThis(nums, mid, end, target);
     }
-    return -1;
   }
 }
