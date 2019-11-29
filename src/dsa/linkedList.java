@@ -12,7 +12,8 @@ public class linkedList {
     head.next.next = new ListNode(3);
     head.next.next.next = new ListNode(4);
     head.next.next.next.next = new ListNode(5);
-    removeFirst(head);
+    //removeFirst(head);
+    reverse(head);
     System.out.println(head);
   }
 
@@ -35,6 +36,16 @@ public class linkedList {
     }
     return pre;
      */
+  }
+
+  static ListNode reverse(ListNode head) {
+    if (head.next == null) {
+      return head;
+    }
+    ListNode last = reverse(head.next);
+    head.next.next = head;
+    head.next = null;
+    return last;
   }
 
 }
