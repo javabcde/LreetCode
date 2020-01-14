@@ -15,7 +15,7 @@ public class testThread {
 
   static class Sync {
 
-    public void test() {
+    void test() {
 
       synchronized (this) {
         System.out.println("test开始..");
