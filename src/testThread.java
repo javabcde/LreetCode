@@ -4,6 +4,8 @@
  */
 public class testThread {
 
+  private static Object lock = new Object();
+
   public static void main(String[] args) {
     for (int i = 0; i < 3; i++) {
       Thread thread = new MyThread();
@@ -17,7 +19,7 @@ public class testThread {
 
     void test() {
 
-      synchronized (this) {
+      synchronized (lock) {
         System.out.println("test开始..");
         try {
           Thread.sleep(1000);
