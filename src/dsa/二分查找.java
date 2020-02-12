@@ -8,7 +8,7 @@ public class 二分查找 {
 
   public static void main(String[] args) {
     int[] ints = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-    int erfen = erfen(ints, 11);
+    int erfen = erfen(ints, 12);
     System.out.println(erfen);
   }
 
