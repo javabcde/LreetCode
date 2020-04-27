@@ -16,8 +16,8 @@ public class 二分查找 {
   private static int erfen(int[] nums, int value) {
     int first = 0;
     int end = nums.length - 1;
-    int middle = first + ((end - first) >> 1);
     while (first <= end) {
+      int middle = first + ((end - first) >> 1);
       if (nums[middle] > value) {
         //明显大于目标值 所以长度middle-1
         end = middle - 1;
@@ -26,7 +26,6 @@ public class 二分查找 {
       } else if (nums[middle] == value) {
         return nums[middle];
       }
-      middle = (first + end) / 2;
     }
     return 0;
   }
