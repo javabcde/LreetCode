@@ -12,7 +12,34 @@ public class Solution3 {
     System.out.println(lengthOfLongestSubstring(s));
   }
 
+  //优化
   public static int lengthOfLongestSubstring(String s) {
+    if (s.equals("")) {
+      return 0;
+    }
+    if (s.length() == 1) {
+      return 1;
+    }
+    //String[] split = s.split("");
+    Set<Character> stringSet = new HashSet<>();
+    int fast = 0;
+    int slow = 0;
+    int length = 0;
+    while (fast < s.length()) {
+      if (!stringSet.contains(s.charAt(fast))) {
+        stringSet.add(s.charAt(fast));
+        fast++;
+        length = Math.max(length, stringSet.size());
+      } else {
+        //已经出现过了 将左边界删除一个
+        stringSet.remove(s.charAt(slow));
+        slow++;
+      }
+    }
+    return length;
+  }
+
+/*  public static int lengthOfLongestSubstring(String s) {
     if (s.equals("")) {
       return 0;
     }
@@ -28,14 +55,13 @@ public class Solution3 {
       if (!stringSet.contains(split[fast])) {
         stringSet.add(split[fast]);
         fast++;
-        if (stringSet.size() > length) {
-          length = stringSet.size();
-        }
+        length = Math.max(length, stringSet.size());
       } else {
+        //已经出现过了 将左边界删除一个
         stringSet.remove(split[slow]);
         slow++;
       }
     }
     return length;
-  }
+  }*/
 }
