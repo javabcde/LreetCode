@@ -7,33 +7,35 @@ package dsa;
 public class fastSortTest {
 
   public static void main(String[] args) {
-    int[] ints = {1, 5, 6, 9, 8, 1, 7, 8, 4};
-    sort(ints, 0, ints.length - 1);
-    System.out.println(ints);
-  }
-
-  public static void sort(int[] nums, int start, int end) {
-    if (start >= end) {
-      return;
+    int[] arr = {1, 1, 1, 0, 0, 0, 2, 2, 2};
+    sortnum(arr, 1);
+    for (int i = 0; i <= arr.length - 1; i++) {
+      System.out.println(arr[i]);
     }
-    int middle = partner(nums, start, end);
-    sort(nums, start, middle - 1);
-    sort(nums, middle + 1, end);
   }
 
-  private static int partner(int[] nums, int start, int end) {
-    int jizhun = nums[end];
-    int fast = start;
-    int slow = start;
-    while (fast < end) {
-      if (nums[fast] < jizhun) {
-        swap(nums, fast, slow);
-        slow++;
+  /**
+   * 荷兰国旗
+   * 给定一个数组arr，和一个数num，请把小于num的数放在数组的左边，等于num的书放在中间，大于num的数放在右边。 要求：时间复杂度O（n），额外空间复杂度O(1)
+   * i每找到一个小于flag的数，就和left交换，然后left++
+   *
+   * i每找到一个大于flag的数，就和right交换，然后right--
+   *
+   * 大于的放后面，小于的放前面，等于的自然就放在中间了；
+   */
+  public static void sortnum(int[] arr, int num) {
+    int small = -1;
+    int big = arr.length;
+    int current = 0;
+    while (current != big) {
+      if (arr[current] < num) {
+        swap(arr, ++small, current++);
+      } else if (arr[current] == num) {
+        current++;
+      } else if (arr[current] > num) {
+        swap(arr, --big, current);
       }
-      fast++;
     }
-    swap(nums, slow, end);
-    return slow;
   }
 
   private static void swap(int[] nums, int i, int j) {

@@ -7,8 +7,9 @@ package dsa;
 public class fastSort {
 
   public static void main(String[] args) {
-    int[] ints = {1, 5, 6, 9, 8, 1, 7, 8, 4};
-    fastSort(ints);
+    int[] ints = {5, 6, 9, 8, 1, 7, 8, 4};
+    //fastSort(ints);
+    QuickSort(ints, 0, ints.length - 1);
     System.out.println(ints);
   }
 
@@ -48,5 +49,48 @@ public class fastSort {
     int tmp = nums[i];
     nums[i] = nums[j];
     nums[j] = tmp;
+  }
+
+  //====================================================================================
+
+  /**
+   * 快速排序（经典快排）
+   * ·选取第一个数（或最后一个数）作为基准,把它放在数组的中，数组一分为二，左边的数比它小右边的数比它大
+   * ·将左边的部分递归
+   * ·将右边的部分递归
+   */
+  public static void QuickSort(int[] A, int p, int r) {//p,r分别为数组的首元素和尾元素下标
+    if (p < r) {
+      int q = Partition(A, p, r);//划分数组，找到首元素A[p]在排好序后的位置q q是临界位置 最后需要交换下 将标准值换过去
+      swap(A, p, q);
+      QuickSort(A, p, q - 1);
+      QuickSort(A, q + 1, r);
+    }
+  }
+
+  /*
+    输入：数组A[p,r];
+    输出:j,A的首元素在排好序的数组中的位置
+  */
+  public static int Partition(int[] A, int p, int r) {
+
+    int key = A[p];
+    int i = p;
+    int j = r;
+    while (i < j) {
+      /*从左向右遍历 比key小的话 直接下标加一空过key  直到遇到比key大的*/
+      while (A[i] <= key) {
+        i = i + 1;
+      }
+      /*从右向左遍历 比key大的话 直接下标减一空过key 直到遇到比key小的 不更新数字*/
+      while (A[j] > key) {
+        j = j - 1;
+      }
+      if (i < j) {
+        //交换左右下标的数字
+        swap(A, i, j);
+      }
+    }
+    return j;
   }
 }
