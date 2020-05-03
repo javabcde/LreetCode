@@ -55,6 +55,7 @@ public class Solution53 {
     for (int num : nums) {
       //当前的值与 之前的和加上这个当前数进行比较 选一个最大值.
       pre = Math.max(num, pre + num);
+      //比一下是不是最大值 是的话更新
       res = Math.max(res, pre);
     }
     return res;
