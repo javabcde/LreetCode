@@ -23,4 +23,16 @@ public class Solution55 {
     }
     return true;
   }
+
+  /*
+    int maxIndex = 0;
+    int end = 0;
+    for (int i = 0; i < nums.length - 1; i++) {
+      maxIndex = Math.max(maxIndex, nums[i] + i);
+      if (i == end) {
+        end = maxIndex;
+      }
+    }
+    return end >= nums.length - 1;
+    */
 }

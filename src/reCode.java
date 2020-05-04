@@ -4,7 +4,7 @@
  */
 public class reCode {
 
-  public int jump(int[] nums) {
+  public int jump2(int[] nums) {
     int maxIndex = 0;
     int res = 0;
     int end = 0;
@@ -16,5 +16,17 @@ public class reCode {
       }
     }
     return res;
+  }
+
+  public boolean jump1(int[] nums) {
+    int maxIndex = 0;
+    int end = 0;
+    for (int i = 0; i < nums.length - 1; i++) {
+      maxIndex = Math.max(maxIndex, nums[i] + i);
+      if (i == end) {
+        end = maxIndex;
+      }
+    }
+    return end >= nums.length - 1;
   }
 }
