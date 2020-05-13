@@ -1,3 +1,5 @@
+import baseEntity.ListNode;
+
 /**
  * Created by TOM
  * On 2019/10/14 18:04
@@ -8,7 +10,7 @@ public class Solution19 {
     ListNode listNode = new ListNode(2);
     ListNode head = new ListNode(1);
     head.next = listNode;
-    //ListNode listNode1 = removeNthFromEnd(head, 2);
+    //baseEntity.ListNode listNode1 = removeNthFromEnd(head, 2);
     ListNode listNode2 = removeNthFromEnd2(head, 1);
     System.out.println(listNode2);
   }

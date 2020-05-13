@@ -1,3 +1,5 @@
+import baseEntity.ListNode;
+
 /**
  * 需要链表反转
  * Created by TOM

@@ -1,13 +1,15 @@
+package baseEntity;
+
 /**
  * Created by TOM
  * On 2019/10/16 13:56
  */
 public class ListNode {
 
-  int val;
-  ListNode next;
+  public int val;
+  public ListNode next;
 
-  ListNode(int x) {
+  public ListNode(int x) {
     val = x;
   }
 }

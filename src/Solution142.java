@@ -1,3 +1,4 @@
+import baseEntity.ListNode;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +18,7 @@ public class Solution142 {
     if (fast == null) {
       return null;
     }
-    //ListNode xiangjiao = fast;
+    //baseEntity.ListNode xiangjiao = fast;
     ListNode headStart = head;
     while (headStart != fast) {
       fast = fast.next;

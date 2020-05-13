@@ -1,3 +1,5 @@
+import baseEntity.ListNode;
+
 /**
  * Created by TOM
  * On 2019/11/28 17:08
