@@ -17,9 +17,9 @@ public class Solution15 {
   }
 
   private static List<List<Integer>> threeSuma(int[] nums) {
-    List<List<Integer>> ans = new ArrayList();
+    List<List<Integer>> ans = new ArrayList<>();
     int len = nums.length;
-    if (nums == null || len < 3) {
+    if (len < 3) {
       return ans;
     }
     Arrays.sort(nums); // 排序
@@ -46,7 +46,7 @@ public class Solution15 {
           R--;
         } else if (sum < 0) {
           L++;
-        } else if (sum > 0) {
+        } else {
           R--;
         }
       }
