@@ -38,6 +38,7 @@ public class Codec297 {
   private TreeNode buildTree(Deque<String> nodes) {
     String val = nodes.remove();
     if (val.equals(NN)) {
+      // 根节点不可能为NULL
       return null;
     } else {
       TreeNode node = new TreeNode(Integer.parseInt(val));
