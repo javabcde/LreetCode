@@ -19,16 +19,36 @@ public class Solution24 {
   }
 
   public static ListNode swapPairs(ListNode head) {
-    ListNode vir = new ListNode(0);
-    ListNode p = vir;
-    ListNode fast = head.next;
-    ListNode slow = head;
-    while (fast != null) {
-      p = fast;
-      p.next = slow;
-      fast = fast.next.next;
-      slow = slow.next.next;
+    ListNode pre = new ListNode(0);
+    pre.next = head;
+    ListNode temp = pre;
+    while (temp.next != null && temp.next.next != null) {
+      ListNode start = temp.next;
+      ListNode end = temp.next.next;
+      temp.next = end;
+      start.next = end.next;
+      end.next = start;
+      temp = start;
     }
-    return vir.next;
+    return pre.next;
+  }
+
+  public ListNode swapPairsA(ListNode head) {
+
+    // If the list has no node or has only one node left.
+    if ((head == null) || (head.next == null)) {
+      return head;
+    }
+
+    // Nodes to be swapped
+    ListNode firstNode = head;
+    ListNode secondNode = head.next;
+
+    // Swapping
+    firstNode.next = swapPairsA(secondNode.next);
+    secondNode.next = firstNode;
+
+    // Now the head is the second node
+    return secondNode;
   }
 }
