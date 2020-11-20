@@ -20,7 +20,7 @@ public class Solution47 {
     List<List<Integer>> result = new ArrayList<>();
     boolean[] temp = new boolean[nums.length];
     Arrays.fill(temp, false);
-    List<Integer> list = new ArrayList();
+    List<Integer> list = new ArrayList<>();
     for (int num : nums) {
       list.add(num);
     }
