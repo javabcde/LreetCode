@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,9 +13,12 @@ import java.util.Stack;
 public class Solution47 {
 
   public static void main(String[] args) {
-    int[] ints = {1, 2, 1};
+/*    int[] ints = {1, 2, 1};
     List<List<Integer>> permute = permuteUnique(ints);
-    System.out.println(permute);
+    System.out.println(permute);*/
+
+    System.out.println((BigDecimal.valueOf(0.4).multiply(BigDecimal.valueOf(8.19)))
+        .divide(BigDecimal.valueOf(26.2), 2, RoundingMode.HALF_UP));
   }
 
   public static List<List<Integer>> permuteUnique(int[] nums) {
