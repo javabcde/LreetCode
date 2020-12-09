@@ -7,6 +7,10 @@ import java.util.List;
  */
 public class Solution118 {
 
+  public static void main(String[] args) {
+    
+  }
+
   public List<List<Integer>> generate(int numRows) {
     List<List<Integer>> list = new ArrayList<>();
     int[][] arr = new int[numRows][numRows];
