@@ -2,7 +2,7 @@
  * Created by TOM
  * On 2020/4/24 10:12
  */
-public class Solution51 {
+public class OfferSolution51 {
 
   public static void main(String[] args) {
     int[] ints = {7, 5, 6, 4};

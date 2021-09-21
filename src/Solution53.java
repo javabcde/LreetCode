@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by TOM
  * On 2020/5/3 17:06
@@ -41,9 +44,34 @@ public class Solution53 {
    */
   public static void main(String[] args) {
 
-    int[] ints = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-    System.out.println(maxSubArray(ints));
+    /*int[] ints = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    System.out.println(maxSubArray(ints));*/
+    String s = "(abc)(def)(ghi)(jkl)";
+    String[] b = s.split("\\)");
+    List<String> sarray = new ArrayList<>();
+    for (String s1 : b) {
+      if (s1.indexOf('(') > -1) {
+        sarray.add(s1.substring(s1.indexOf("(") + 1));
+      }
+    }
+    List<String> search = new ArrayList<>();
 
+    //tentoTwo(908);
+    backtrack(search, sarray, 0, new StringBuffer());
+    System.out.println(search.toString());
+
+  }
+
+/*  private static void tentoTwo(int i) {
+    if (i % 2 == 0) {
+      System.out.println(i + "取余2为0");
+    } else if (i % 2 == 1) {
+      System.out.println(i + "取余2为1");
+    }
+    if (i < 1) {
+      return;
+    }
+    tentoTwo(i / 2);
   }
 
   public static int maxSubArray(int[] nums) {
@@ -53,11 +81,23 @@ public class Solution53 {
     int res = nums[0];
     int pre = 0;
     for (int num : nums) {
-      //当前的值与 之前的和加上这个当前数进行比较 选一个最大值.
-      pre = Math.max(num, pre + num);
-      //比一下是不是最大值 是的话更新
-      res = Math.max(res, pre);
+      pre = Math.max(num, num + pre);
+      res = Math.max(pre, res);
     }
     return res;
+  }*/
+
+  public static void backtrack(List<String> result, List<String> sarray, int index, StringBuffer combination) {
+    if (index == sarray.size()) {
+      result.add(combination.toString());
+    } else {
+      String letters = sarray.get(index);
+      int lettersCount = letters.length();
+      for (int i = 0; i < lettersCount; i++) {
+        combination.append(letters.charAt(i));
+        backtrack(result, sarray, index + 1, combination);
+        combination.deleteCharAt(index);
+      }
+    }
   }
 }
