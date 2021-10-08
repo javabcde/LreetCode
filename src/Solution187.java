@@ -9,6 +9,8 @@ import java.util.Map;
  */
 public class Solution187 {
 
+  final int l = 10;
+
   public static void main(String[] args) {
     List<String> aaaaaaaaaaaaa = findRepeatedDnaSequences("AAAAAAAAAAAAA");
     System.out.println(aaaaaaaaaaaaa);
@@ -16,7 +18,6 @@ public class Solution187 {
 
 
   public static List<String> findRepeatedDnaSequences(String s) {
-    final int l = 10;
     List<String> result = new ArrayList<>();
     Map<String, Integer> temp = new HashMap<>();
     int length = s.length();
@@ -29,6 +30,4 @@ public class Solution187 {
     }
     return result;
   }
-
-
 }
