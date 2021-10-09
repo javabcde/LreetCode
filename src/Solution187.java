@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public class Solution187 {
 
-  final int l = 10;
+  final static int l = 10;
 
   public static void main(String[] args) {
     List<String> aaaaaaaaaaaaa = findRepeatedDnaSequences("AAAAAAAAAAAAA");
