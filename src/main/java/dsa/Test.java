@@ -1,14 +1,20 @@
 package dsa;
 
+import java.io.IOException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 /**
  * Created by TOM
  * On 2020/9/6 14:23
  */
 public class Test {
 
+  private Executor executor = Executors.newFixedThreadPool(3);
 
-  public static void main(String[] args) {
-
+  public static void main(String[] args) throws InterruptedException, IOException {
+    System.out.println("\\\\".replace("\\","}"));
+    
   }
 
   /**

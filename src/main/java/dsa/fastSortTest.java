@@ -1,5 +1,7 @@
 package dsa;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * Created by TOM
  * On 2019/11/2 17:21
@@ -7,12 +9,16 @@ package dsa;
 public class fastSortTest {
 
   public static void main(String[] args) {
-    int[] arr = {1, 1, 1, 0, 0, 0, 2, 2, 2};
-    sortnum(arr, 1);
-    for (int i = 0; i <= arr.length - 1; i++) {
-      System.out.println(arr[i]);
-    }
+    int[] arr = {1, 1, 1, 0, 0, 0, 2, 2, 2, 4, 4, 4, 5, 65, 9, 4, 21, 2, 3};
+    //sortnum(arr, 1);
+    sortnum(arr, 0, arr.length - 1);
+    System.out.println(JSON.toJSONString(arr));
   }
+
+  private static void sortnum(int[] arr, int start, int end) {
+
+  }
+
 
   /**
    * 荷兰国旗
@@ -24,16 +30,16 @@ public class fastSortTest {
    * 大于的放后面，小于的放前面，等于的自然就放在中间了；
    */
   public static void sortnum(int[] arr, int num) {
-    int small = -1;
-    int big = arr.length;
+    int left = -1;
+    int right = arr.length;
     int current = 0;
-    while (current != big) {
+    while (current != right) {
       if (arr[current] < num) {
-        swap(arr, ++small, current++);
+        swap(arr, ++left, current++);
       } else if (arr[current] == num) {
         current++;
       } else if (arr[current] > num) {
-        swap(arr, --big, current);
+        swap(arr, --right, current);
       }
     }
   }
