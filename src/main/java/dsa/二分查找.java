@@ -29,5 +29,4 @@ public class 二分查找 {
     }
     return 0;
   }
-
 }
